@@ -11,7 +11,7 @@ const Hero = ({maintext, subText, page}) => {
     <section className={`bg-${page} max-md:h-[80vh] relative py-5 text-white`}>
         <div className="flex justify-between w-[95%] mx-auto items-center">
           <Logo />
-          <Link href="/rooms">
+          <Link href="/rooms" scroll={false}>
             <button className="bg-white text-sm sm:text-base text-black py-2 px-4 font-semibold">BOOK NOW</button>
           </Link>
         </div>

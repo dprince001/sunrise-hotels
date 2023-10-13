@@ -3,8 +3,9 @@ import { useEffect, useState } from "react"
 import client from "../../../../sanity"
 import ImageBuilder from "@/app/components/imageBuilder"
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules'
+import 'swiper/css';
+import BackArrow from "@/assets/svgs/backArrow";
 
 
 
@@ -13,6 +14,8 @@ const Room = ({params}) => {
 
   const slug = params.roomName;
   const [roomDetails, setRoomDetails] = useState(null);
+
+  // const navigate = useRouter()
 
   useEffect(() => {
     try {
@@ -29,6 +32,10 @@ const Room = ({params}) => {
     }
   }, [])
 
+  const goBack = () => {
+    window.history.back()
+  }
+
 
   return (
     <div>
@@ -36,7 +43,11 @@ const Room = ({params}) => {
         const {beds, capacity, description, interiorImages, mainImage, price, roomName, size} = room;
 
         return (
-          <>
+          <div key={roomName}>
+            <div className="mx-5 py-2 flex gap-2 cursor-pointer items-center" onClick={goBack}>
+              <BackArrow />
+              <span>Go back</span>
+            </div>
             <ImageBuilder obj={room} type="mainImage" />
             <section className="w-[85%] mx-auto">
               <div className="md:flex gap-8 my-14">
@@ -88,7 +99,7 @@ const Room = ({params}) => {
                 }
               </div>
             </section>
-          </>
+          </div>
         )
 
       })

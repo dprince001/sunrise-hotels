@@ -6,6 +6,8 @@ import EmailIcon from "@/assets/svgs/emailIcon"
 
 
 const ContactPage = () => {
+
+
   return (
     <div className="bg-colorAsh">
         <Hero maintext="CONTACT US" page='contact'/>

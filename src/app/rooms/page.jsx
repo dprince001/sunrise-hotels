@@ -4,14 +4,15 @@ import { useEffect, useState } from 'react'
 import client from '../../../sanity'
 import Hero from '../components/hero'
 import RoomCard from '../components/roomCard'
+import NoRoomFound from '@/assets/svgs/noRoomFound'
 
 
 
-const config = {
-  projectId: '2tyvmvhe',
-  dataset: 'production',
-  useCdn: true
-}
+// const config = {
+//   projectId: '2tyvmvhe',
+//   dataset: 'production',
+//   useCdn: true
+// }
 
 
 const RoomsPage = () => {
@@ -44,7 +45,6 @@ const RoomsPage = () => {
   const [selectedPrice, setSelectedPrice] = useState("")
   const [selectedBeds, setSelectedBeds] = useState("")
   const [selectedCapacity, setSelectedCapacity] = useState("")
-
 
 
   useEffect(() => {
@@ -89,38 +89,57 @@ const RoomsPage = () => {
       <Hero maintext="ROOMS & SUITES" subText="explore" page='rooms'/>
 
       <section className='w-[90%] my-10 mx-auto'>
-        <div className='flex max-sm:overflow-x-scroll no-scrollbar'>
-          <div className='h-[40px] border border-colorBrown px-2 flex items-center'>
-            <select name="price" classname="h-[40px] text-sm sm:text-base border-none w-full bg-transparent appearance-none outline-none" onChange={(e) => setSelectedPrice(e.target.value)}>
-              <option value="" className='hidden' defaultValue={true}>Price</option>
+        <div className='flex max-sm:overflow-x-scroll no-scrollbar gap-2 items-end'>
+          <p>Filter rooms by: </p>
+          <div className='bg-white border border-colorBrown flex items-center cursor-pointer'>
+            <select
+              name="price"
+              className="text-sm sm:text-base bg-transparent appearance-none outline-none border-none px-2 pr-6 focus:outline-none cursor-pointer"
+              onChange={(e) => setSelectedPrice(e.target.value)}
+            >
+              <option value="" className='hidden text-sm' defaultValue={true}>Price</option>
               {rooms && priceFilters.map(price => (
-                <option value={price} key={price} className=''>less than {price}</option>
+                <option value={price} key={price} className='text-sm focus:border-none focus:outline-none outline-none border-none p-2'>less than {price}</option>
               ))}
             </select>
           </div>
-          <div className='h-[40px] border border-colorBrown px-2 flex items-center'>
-            <select name="bed" classname="text-sm bg-transparent sm:text-base border-none appearance-none outline-none" onChange={(e) => setSelectedBeds(e.target.value)}>
+          <div className='bg-white border border-colorBrown flex items-center cursor-pointer'>
+            <select
+              name="price"
+              className="text-sm sm:text-base bg-transparent appearance-none outline-none border-none px-2 pr-6 focus:outline-none cursor-pointer"
+              onChange={(e) => setSelectedBeds(e.target.value)}
+            >
               <option value="" className='hidden' defaultValue={true}>Bed</option>
               {rooms && bedFilters.map(bed => (
                 <option value={bed} key={bed}> {bed} {bed > 1 ? "beds" : "bed"}</option>
               ))}
             </select>
           </div>
-          <div className='h-[40px] border border-colorBrown px-2 flex items-center'>
-            <select name="capacity" classname="text-sm bg-transparent sm:text-base border-none appearance-none outline-none" onChange={(e) => setSelectedCapacity(e.target.value)}>
+          <div className='bg-white border border-colorBrown flex items-center cursor-pointer'>
+            <select
+              name="price"
+              className="text-sm sm:text-base bg-transparent appearance-none outline-none border-none px-2 pr-6 focus:outline-none cursor-pointer"
+              onChange={(e) => setSelectedCapacity(e.target.value)}
+            >
               <option value="" className='hidden' defaultValue={true}>Guest</option>
               {rooms && capacity.map(guest => (
                 <option value={guest} key={guest}>{guest} {guest > 1 ? "guests" : "guest"}</option>
               ))}
             </select>
           </div>
+
         </div>
 
         <section className='grid grid-cols-2 gap-10 my-8'>
-          {filteredRooms && filteredRooms.map((room, i) => (
+          {filteredRooms && filteredRooms?.length > 0 && filteredRooms.map((room, i) => (
             <RoomCard roomDetails={room} key={i}/>
           ))}
         </section>
+
+        {filteredRooms?.length === 0 && <div className='flex flex-col gap-3 justify-center min-h-[200px] items-center'>
+          <NoRoomFound />
+          <p>No rooms found under this category</p>
+        </div>}
       </section>
 
     </main>

@@ -6,7 +6,7 @@ import Logo from "@/assets/svgs/logo"
 
 const Footer = () => {
   return (
-    <section className="bg-[#8F3E43] text-white md:p-10 p-6 pb-8 sm:px-14">
+    <section className="w-[100%] max-w-[1600px] mx-auto bg-[#8F3E43] text-white md:p-10 p-6 pb-8 sm:px-14">
         <div className="gap-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
             <Logo />
 

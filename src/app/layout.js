@@ -1,19 +1,12 @@
-"use client"
 import './globals.css'
 import Footer from './components/footer'
-import { useEffect } from 'react'
-
 
 export const metadata = {
   title: 'Sunrise Hotels',
   description: 'Home away from home',
 }
 
-
-
 export default function RootLayout({ children }) {
-
-  
 
   return (
     <html lang="en">

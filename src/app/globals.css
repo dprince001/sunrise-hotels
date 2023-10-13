@@ -48,6 +48,10 @@
     background-image: linear-gradient(rgba(143,62,67, 0.8), rgba(143,62,67,0.8)) ,url(../assets/images/contactBackground.png);
 }
 
+.image-component {
+    height: 80vh;
+}
+
 
 //utilities
 @layer utilities {
@@ -127,3 +131,13 @@ src: url("../assets/fonts/montserrat/Montserrat-Bold.ttf");
 }
 
 
+
+
+@media (max-width: 600px) {
+    .bg-about {
+        min-height: 300px;
+    }
+    .image-component {
+        max-height: 400px
+    }
+}

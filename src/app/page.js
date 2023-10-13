@@ -55,8 +55,8 @@ const Home = () => {
       </section>
 
       <section className="mt-20 w-[95%] mx-auto text-center">
-        <h2 className="font-didot max-sm:text-[40px] text-[50px] lg:text-[55px] font-regular mb-6">Rooms & Suites</h2>
-        <p className="max-w-[800px] mx-auto mb-4">
+        <h2 className="font-didot max-sm:text-[40px] text-[50px] lg:text-[55px] font-regular mb-4 sm:mb-6">Rooms & Suites</h2>
+        <p className="max-w-[800px] mx-auto mb-4 w-[95%]">
           Sunrise Hotel offers 30 double, and 5 single rooms as well as 36 suites and junior suites. Families can enjoy some privacy thanks to interconnecting rooms or in our generous Family Suite with Matterhorn view on the top floor. All of our rooms feature elegant wooden parquet flooring.
         </p>
 
@@ -65,7 +65,7 @@ const Home = () => {
       </section>
 
       <section className="mt-20 w-[95%] mx-auto text-center">
-        <h2 className="font-didot max-sm:text-[40px] text-[50px] lg:text-[55px] font-regular mb-6">Facilities</h2>
+        <h2 className="font-didot max-sm:text-[40px] text-[50px] lg:text-[55px] font-regular mb-4 sm:mb-6">Facilities</h2>
         <p className="max-w-[800px] mx-auto mb-4">
           Sunrise Hotels offers a wide range of facilities for all guests. Enjoy our sport facilities and entertainment programs. The hotel reception is at your service 24h a day where you can rent tables to serve your needs or have your luggage taken care of 24h a day.
         </p>

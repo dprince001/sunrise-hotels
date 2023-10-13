@@ -1,3 +1,4 @@
+"use client"
 import Hero from "../components/hero"
 import LocationIcon from "@/assets/svgs/locationIcon"
 import PhoneIcon from "@/assets/svgs/phoneIcon"
@@ -33,7 +34,7 @@ const ContactPage = () => {
                     <span className="">support@sunrise.com</span>
                 </div>
             </div>
-            <form className="bg-white flex flex-col basis-1/2 p-10">
+            <form onSubmit={e => e.preventDefault()} className="bg-white flex flex-col basis-1/2 p-10">
                 <div className="lg:flex gap-4">
                     <input type="text" aria-label="first name" name="firstName" placeholder="First name" className="p-3 w-full mb-4 border outline-none border-[#6F6F6F] bg-white" autoComplete="off"/>
                     <input type="text" aria-label="last name" name="lastName" placeholder="Last name" className="p-3 w-full mb-4 border outline-none border-[#6F6F6F] bg-white" autoComplete="off"/>

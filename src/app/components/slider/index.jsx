@@ -63,12 +63,26 @@ const Slider = ({array}) => {
         <Swiper
           spaceBetween={30}
           // slidesPerView={"auto"}
-          slidesPerView={3}
+          // slidesPerView={3}
+          breakpoints={{
+            1000: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            300: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+          }}
           centeredSlides={false}
           loop={true}
           autoplay={{
             delay: 2500,
-            disableOnInteraction: false,
+            disableOnInteraction: true,
           }}
           modules={[Autoplay]}
         >

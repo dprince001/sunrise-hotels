@@ -51,7 +51,7 @@ const Room = ({params}) => {
             <ImageBuilder obj={room} type="mainImage" />
             <section className="w-[85%] mx-auto">
               <div className="md:flex gap-8 my-14">
-                <div className="grid grid-cols-2 grid-rows-2 basis-[40%]">
+                <div className="grid grid-cols-2 gap-3 grid-rows-2 basis-[40%] mb-5">
                   <div className="">
                     <p className="text-base sm:text-xl mb-1">BEDS</p>
                     <p>{beds}</p>
@@ -76,12 +76,20 @@ const Room = ({params}) => {
               </div>
 
               <div className="mb-20">
-                <h4 className="text-[70px] font-didot border-b-2 border-slate-300 text-slate-300 mb-5">Photo gallery</h4>
+                <h4 className="text-[45px] sm:text-[70px] font-didot border-b-2 border-slate-300 text-slate-300 mb-5">Photo gallery</h4>
 
                 {room &&
                   <Swiper
                     spaceBetween={30}
-                    slidesPerView={2}
+                    // slidesPerView={2}
+                    breakpoints={{
+                      640: {
+                        slidesPerView: 2,
+                      },
+                      300: {
+                        slidesPerView: 1,
+                      },
+                    }}
                     centeredSlides={false}
                     loop={true}
                     autoplay={{

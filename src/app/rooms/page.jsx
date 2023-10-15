@@ -5,6 +5,7 @@ import client from '../../../sanity'
 import Hero from '../components/hero'
 import RoomCard from '../components/roomCard'
 import NoRoomFound from '@/assets/svgs/noRoomFound'
+import DropdownArrow from '@/assets/svgs/dropdownArrow'
 
 
 
@@ -85,7 +86,7 @@ const RoomsPage = () => {
         <div className='flex max-sm:flex-col max-sm:overflow-x-scroll no-scrollbar gap-2 sm:items-end'>
           <p>Filter rooms by: </p>
           <div className='flex gap-2'>
-            <div className='bg-white border border-colorBrown flex items-center cursor-pointer'>
+            <div className='bg-white border border-colorBrown flex items-center cursor-pointer relative'>
               <select
                 name="price"
                 className="text-sm sm:text-base bg-transparent appearance-none outline-none border-none px-2 pr-6 focus:outline-none cursor-pointer"
@@ -96,8 +97,9 @@ const RoomsPage = () => {
                   <option value={price} key={price} className='text-sm focus:border-none focus:outline-none outline-none border-none p-2'>less than {price}</option>
                 ))}
               </select>
+              <DropdownArrow className="absolute right-1 top-[50%]" />
             </div>
-            <div className='bg-white border border-colorBrown flex items-center cursor-pointer'>
+            <div className='bg-white border border-colorBrown flex items-center cursor-pointer relative'>
               <select
                 name="price"
                 className="text-sm sm:text-base bg-transparent appearance-none outline-none border-none px-2 pr-6 focus:outline-none cursor-pointer"
@@ -108,8 +110,9 @@ const RoomsPage = () => {
                   <option value={bed} key={bed}> {bed} {bed > 1 ? "beds" : "bed"}</option>
                 ))}
               </select>
+              <DropdownArrow className="absolute right-1 top-[50%]" />
             </div>
-            <div className='bg-white border border-colorBrown flex items-center cursor-pointer'>
+            <div className='bg-white border border-colorBrown flex items-center cursor-pointer relative'>
               <select
                 name="price"
                 className="text-sm sm:text-base bg-transparent appearance-none outline-none border-none px-2 pr-6 focus:outline-none cursor-pointer"
@@ -120,6 +123,7 @@ const RoomsPage = () => {
                   <option value={guest} key={guest}>{guest} {guest > 1 ? "guests" : "guest"}</option>
                 ))}
               </select>
+              <DropdownArrow className="absolute right-1 top-[50%]" />
             </div>
           </div>
 
